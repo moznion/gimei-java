@@ -3,6 +3,7 @@ package net.moznion.gimei;
 import static org.junit.Assert.assertEquals;
 
 import lombok.extern.slf4j.Slf4j;
+import net.moznion.gimei.address.Address;
 import net.moznion.gimei.name.Female;
 import net.moznion.gimei.name.Hanako;
 import net.moznion.gimei.name.Male;
@@ -133,6 +134,27 @@ public class GimeiTest {
         String katakana = hanako.katakana();
         assertEquals(last.katakana() + " ハナコ", katakana);
         log.info(katakana);
+    }
+
+    @Test
+    public void testForAddress() {
+        final Address address = Gimei.generateAddress();
+
+        final NameUnit prefecture = address.prefecture();
+        final NameUnit city = address.city();
+        final NameUnit town = address.town();
+
+        String kanji = address.kanji();
+        log.info(kanji);
+        assertEquals(prefecture.kanji() + city.kanji() + town.kanji(), kanji);
+
+        String hiragana = address.hiragana();
+        log.info(hiragana);
+        assertEquals(prefecture.hiragana() + city.hiragana() + town.hiragana(), hiragana);
+
+        String katakana = address.katakana();
+        log.info(katakana);
+        assertEquals(prefecture.katakana() + city.katakana() + town.katakana(), katakana);
     }
 }
 
