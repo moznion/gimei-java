@@ -1,13 +1,14 @@
 package net.moznion.gimei;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import lombok.extern.slf4j.Slf4j;
 import net.moznion.gimei.name.Female;
+import net.moznion.gimei.name.Hanako;
 import net.moznion.gimei.name.Male;
 import net.moznion.gimei.name.Name;
 import net.moznion.gimei.name.NameUnit;
+import net.moznion.gimei.name.Taro;
 import org.junit.Test;
 
 @Slf4j
@@ -17,7 +18,6 @@ public class GimeiTest {
         final Name name = Gimei.generateName();
 
         final boolean isMale = name.isMale();
-        log.info("isMale: {}", isMale);
         assertEquals(!isMale, name.isFemale());
 
         final NameUnit first = name.first();
@@ -79,6 +79,60 @@ public class GimeiTest {
 
         String katakana = female.katakana();
         assertEquals(last.katakana() + " " + first.katakana(), katakana);
+        log.info(katakana);
+    }
+
+    @Test
+    public void testForTaro() {
+        final Taro taro = Gimei.generateTaro();
+
+        assertEquals(taro.isMale(), true);
+        assertEquals(taro.isFemale(), false);
+
+        final NameUnit first = taro.first();
+        final NameUnit last = taro.last();
+
+        assertEquals("太郎", first.kanji());
+        assertEquals("たろう", first.hiragana());
+        assertEquals("タロウ", first.katakana());
+
+        String kanji = taro.kanji();
+        assertEquals(last.kanji() + " 太郎", kanji);
+        log.info(kanji);
+
+        String hiragana = taro.hiragana();
+        assertEquals(last.hiragana() + " たろう", hiragana);
+        log.info(hiragana);
+
+        String katakana = taro.katakana();
+        assertEquals(last.katakana() + " タロウ", katakana);
+        log.info(katakana);
+    }
+
+    @Test
+    public void testForHanako() {
+        final Hanako hanako = Gimei.generateHanako();
+
+        assertEquals(hanako.isMale(), false);
+        assertEquals(hanako.isFemale(), true);
+
+        final NameUnit first = hanako.first();
+        final NameUnit last = hanako.last();
+
+        assertEquals("花子", first.kanji());
+        assertEquals("はなこ", first.hiragana());
+        assertEquals("ハナコ", first.katakana());
+
+        String kanji = hanako.kanji();
+        assertEquals(last.kanji() + " 花子", kanji);
+        log.info(kanji);
+
+        String hiragana = hanako.hiragana();
+        assertEquals(last.hiragana() + " はなこ", hiragana);
+        log.info(hiragana);
+
+        String katakana = hanako.katakana();
+        assertEquals(last.katakana() + " ハナコ", katakana);
         log.info(katakana);
     }
 }
