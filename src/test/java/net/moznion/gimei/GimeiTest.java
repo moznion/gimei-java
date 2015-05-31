@@ -23,15 +23,15 @@ public class GimeiTest {
         final NameUnit first = name.first();
         final NameUnit last = name.last();
 
-        String kanji = name.kanji();
+        final String kanji = name.kanji();
         assertEquals(last.kanji() + " " + first.kanji(), kanji);
         log.info(kanji);
 
-        String hiragana = name.hiragana();
+        final String hiragana = name.hiragana();
         assertEquals(last.hiragana() + " " + first.hiragana(), hiragana);
         log.info(hiragana);
 
-        String katakana = name.katakana();
+        final String katakana = name.katakana();
         assertEquals(last.katakana() + " " + first.katakana(), katakana);
         log.info(katakana);
     }
@@ -46,15 +46,15 @@ public class GimeiTest {
         final NameUnit first = male.first();
         final NameUnit last = male.last();
 
-        String kanji = male.kanji();
+        final String kanji = male.kanji();
         assertEquals(last.kanji() + " " + first.kanji(), kanji);
         log.info(kanji);
 
-        String hiragana = male.hiragana();
+        final String hiragana = male.hiragana();
         assertEquals(last.hiragana() + " " + first.hiragana(), hiragana);
         log.info(hiragana);
 
-        String katakana = male.katakana();
+        final String katakana = male.katakana();
         assertEquals(last.katakana() + " " + first.katakana(), katakana);
         log.info(katakana);
     }
@@ -69,15 +69,15 @@ public class GimeiTest {
         final NameUnit first = female.first();
         final NameUnit last = female.last();
 
-        String kanji = female.kanji();
+        final String kanji = female.kanji();
         assertEquals(last.kanji() + " " + first.kanji(), kanji);
         log.info(kanji);
 
-        String hiragana = female.hiragana();
+        final String hiragana = female.hiragana();
         assertEquals(last.hiragana() + " " + first.hiragana(), hiragana);
         log.info(hiragana);
 
-        String katakana = female.katakana();
+        final String katakana = female.katakana();
         assertEquals(last.katakana() + " " + first.katakana(), katakana);
         log.info(katakana);
     }
@@ -96,15 +96,15 @@ public class GimeiTest {
         assertEquals("たろう", first.hiragana());
         assertEquals("タロウ", first.katakana());
 
-        String kanji = taro.kanji();
+        final String kanji = taro.kanji();
         assertEquals(last.kanji() + " 太郎", kanji);
         log.info(kanji);
 
-        String hiragana = taro.hiragana();
+        final String hiragana = taro.hiragana();
         assertEquals(last.hiragana() + " たろう", hiragana);
         log.info(hiragana);
 
-        String katakana = taro.katakana();
+        final String katakana = taro.katakana();
         assertEquals(last.katakana() + " タロウ", katakana);
         log.info(katakana);
     }
@@ -123,15 +123,15 @@ public class GimeiTest {
         assertEquals("はなこ", first.hiragana());
         assertEquals("ハナコ", first.katakana());
 
-        String kanji = hanako.kanji();
+        final String kanji = hanako.kanji();
         assertEquals(last.kanji() + " 花子", kanji);
         log.info(kanji);
 
-        String hiragana = hanako.hiragana();
+        final String hiragana = hanako.hiragana();
         assertEquals(last.hiragana() + " はなこ", hiragana);
         log.info(hiragana);
 
-        String katakana = hanako.katakana();
+        final String katakana = hanako.katakana();
         assertEquals(last.katakana() + " ハナコ", katakana);
         log.info(katakana);
     }
@@ -144,15 +144,15 @@ public class GimeiTest {
         final NameUnit city = address.city();
         final NameUnit town = address.town();
 
-        String kanji = address.kanji();
+        final String kanji = address.kanji();
         log.info(kanji);
         assertEquals(prefecture.kanji() + city.kanji() + town.kanji(), kanji);
 
-        String hiragana = address.hiragana();
+        final String hiragana = address.hiragana();
         log.info(hiragana);
         assertEquals(prefecture.hiragana() + city.hiragana() + town.hiragana(), hiragana);
 
-        String katakana = address.katakana();
+        final String katakana = address.katakana();
         log.info(katakana);
         assertEquals(prefecture.katakana() + city.katakana() + town.katakana(), katakana);
     }

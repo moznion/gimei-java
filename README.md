@@ -1,17 +1,168 @@
 gimei-java
 =============
 
-TBD
+[gimei](https://github.com/willnet/gimei)のJava移植版です．
+漢字，ひらがな，カタカナの3種類の情報を持った架空の情報を生成します．
 
 Synopsis
 ---
 
-TBD
+### Name
 
-Description
+男女を区別せずに架空の人名を生成します．
+
+```java
+Name name = Gimei.generateName();
+
+name.kanji();    // => "丹羽 大志"
+name.hiragana(); // => "にわ たいし"
+name.katakana(); // => "ニワ タイシ"
+
+NameUnit last = name.last();
+last.kanji();    // => "丹羽"
+last.hiragana(); // => "にわ"
+last.katakana(); // => "ニワ"
+
+NameUnit first = name.first();
+first.kanji();    // => "大志"
+first.hiragana(); // => "たいし"
+first.katakana(); // => "タイシ"
+
+name.isMale();   // true or false
+name.isFemale(); // true or false
+```
+
+### Male
+
+架空の男性の人名を生成します．
+
+```java
+Male male = Gimei.generateMale();
+
+male.kanji();    // => "丹羽 大志"
+male.hiragana(); // => "にわ たいし"
+male.katakana(); // => "ニワ タイシ"
+
+NameUnit last = male.last();
+last.kanji();    // => "丹羽"
+last.hiragana(); // => "にわ"
+last.katakana(); // => "ニワ"
+
+NameUnit first = male.first();
+first.kanji();    // => "大志"
+first.hiragana(); // => "たいし"
+first.katakana(); // => "タイシ"
+
+male.isMale();   // true
+male.isFemale(); // false
+```
+
+### Female
+
+架空の女性の人名を生成します．
+
+```java
+Female female = Gimei.generateFemale();
+
+female.kanji();    // => "手塚 陽子"
+female.hiragana(); // => "てづか ようこ"
+female.katakana(); // => "テヅカ ヨウコ"
+
+NameUnit last = female.last();
+last.kanji();    // => "手塚"
+last.hiragana(); // => "てづか"
+last.katakana(); // => "テヅカ"
+
+NameUnit first = female.first();
+first.kanji();    // => "陽子"
+first.hiragana(); // => "ようこ"
+first.katakana(); // => "ヨウコ"
+
+female.isMale();   // false
+female.isFemale(); // true
+```
+
+### Taro
+
+<ランダムな名詞> + "太郎"を生成します．
+
+```java
+Taro taro = Gimei.generateTaro();
+
+taro.kanji();    // => "パソコン 太郎"
+taro.hiragana(); // => "ぱそこん たろう"
+taro.katakana(); // => "パソコン タロウ"
+
+NameUnit last = taro.last();
+last.kanji();    // => "パソコン"
+last.hiragana(); // => "ぱそこん"
+last.katakana(); // => "パソコン"
+
+NameUnit first = taro.first();
+first.kanji();    // => "太郎"
+first.hiragana(); // => "たろう"
+first.katakana(); // => "タロウ"
+
+taro.isMale();   // true
+taro.isFemale(); // false
+```
+
+### Hanako
+
+<ランダムな名詞> + "花子"を生成します．
+
+```java
+Hanako hanako = Gimei.generateHanako();
+
+hanako.kanji();    // => "パソコン 花子"
+hanako.hiragana(); // => "ぱそこん はなこ"
+hanako.katakana(); // => "パソコン ハナコ"
+
+NameUnit last = hanako.last();
+last.kanji();    // => "パソコン"
+last.hiragana(); // => "ぱそこん"
+last.katakana(); // => "パソコン"
+
+NameUnit first = hanako.first();
+first.kanji();    // => "花子"
+first.hiragana(); // => "はなこ"
+first.katakana(); // => "ハナコ"
+
+hanako.isMale();   // false
+hanako.isFemale(); // true
+```
+
+### Address
+
+架空の住所を生成します．
+
+```java
+Address address = Gimei.generateAddress();
+
+address.kanji();    // 熊本県須崎市国府町新通り
+address.hiragana(); // くまもとけんすさきしこくふちょうしんどおり
+address.katakana(); // クマモトケンスサキシコクフチョウシンドオリ
+
+NameUnit prefecture = address.prefecture();
+prefecture.kanji();    // 熊本県
+prefecture.hiragana(); // くまもとけん
+prefecture.katakana(); // クマモトケン
+
+NameUnit city = address.city();
+city.kanji();    // 須崎市
+city.hiragana(); // すさきし
+city.katakana(); // スサキシ
+
+NameUnit town = address.town();
+town.kanji();    // 国府町新通り
+town.hiragana(); // こくふちょうしんどおり
+town.katakana(); // コクフチョウシンドオリ
+```
+
+See also
 --
 
-TBD
+[gimei](https://github.com/willnet/gimei)
 
 Author
 --
