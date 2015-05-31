@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-class NameData {
-    public static final NameYAML nameYAML;
+class NameDataSupplier {
+    public static final NameData NAME_DATA;
 
     static {
         ClassLoader classLoader = Gimei.class.getClassLoader();
@@ -25,7 +25,7 @@ class NameData {
         try {
             byte[] nameSource = Files.readAllBytes(path);
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            nameYAML = mapper.readValue(nameSource, NameYAML.class);
+            NAME_DATA = mapper.readValue(nameSource, NameData.class);
         } catch (IOException e) {
             throw new RuntimeException("Failed to load names.yml file.");
         }
@@ -33,7 +33,7 @@ class NameData {
 
     @Data
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    static class NameYAML {
+    static class NameData {
         private FirstName firstName;
 
         private List<NameUnit> lastName;

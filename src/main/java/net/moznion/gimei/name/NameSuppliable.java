@@ -1,6 +1,6 @@
 package net.moznion.gimei.name;
 
-public interface NameDispenser {
+public interface NameSuppliable {
     String kanji();
 
     String hiragana();

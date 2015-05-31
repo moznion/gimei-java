@@ -3,23 +3,23 @@ package net.moznion.gimei.name;
 import java.util.List;
 import java.util.Random;
 
-public class Female implements NameDispenser {
+public class Female implements NameSuppliable {
     private final NameUnit firstName;
     private final NameUnit lastName;
-    private final static boolean isMale = false;
-    private final static boolean isFemale = true;
+    private final static boolean IS_MALE = false;
+    private final static boolean IS_FEMALE = true;
 
     public Female() {
-        NameData.NameYAML nameYAML = NameData.nameYAML;
+        NameDataSupplier.NameData nameData = NameDataSupplier.NAME_DATA;
 
         Random rand = new Random();
 
         // Randomly pickup a first name
-        final List<NameUnit> firstNames = nameYAML.getFirstName().getFemale();
+        final List<NameUnit> firstNames = nameData.getFirstName().getFemale();
         firstName = firstNames.get(rand.nextInt(firstNames.size()));
 
         // Randomly pickup a last name
-        final List<NameUnit> lastNames = nameYAML.getLastName();
+        final List<NameUnit> lastNames = nameData.getLastName();
         lastName = lastNames.get(rand.nextInt(lastNames.size()));
     }
 
@@ -44,10 +44,10 @@ public class Female implements NameDispenser {
     }
 
     public boolean isMale() {
-        return isMale;
+        return IS_MALE;
     }
 
     public boolean isFemale() {
-        return isFemale;
+        return IS_FEMALE;
     }
 }

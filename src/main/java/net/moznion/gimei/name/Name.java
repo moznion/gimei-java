@@ -2,45 +2,45 @@ package net.moznion.gimei.name;
 
 import java.util.Random;
 
-public class Name implements NameDispenser {
-    private final NameDispenser nameDispenser;
+public class Name implements NameSuppliable {
+    private final NameSuppliable nameSuppliable;
 
     public Name() {
         Random rand = new Random();
 
         // Branch male or female
         if (rand.nextBoolean()) {
-            nameDispenser = new Male();
+            nameSuppliable = new Male();
         } else {
-            nameDispenser = new Female();
+            nameSuppliable = new Female();
         }
     }
 
     public String kanji() {
-        return nameDispenser.kanji();
+        return nameSuppliable.kanji();
     }
 
     public String hiragana() {
-        return nameDispenser.hiragana();
+        return nameSuppliable.hiragana();
     }
 
     public String katakana() {
-        return nameDispenser.katakana();
+        return nameSuppliable.katakana();
     }
 
     public NameUnit last() {
-        return nameDispenser.last();
+        return nameSuppliable.last();
     }
 
     public NameUnit first() {
-        return nameDispenser.first();
+        return nameSuppliable.first();
     }
 
     public boolean isMale() {
-        return nameDispenser.isMale();
+        return nameSuppliable.isMale();
     }
 
     public boolean isFemale() {
-        return nameDispenser.isFemale();
+        return nameSuppliable.isFemale();
     }
 }
