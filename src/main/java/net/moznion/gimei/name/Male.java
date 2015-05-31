@@ -6,8 +6,7 @@ import java.util.Random;
 public class Male implements NameSuppliable {
     private final NameUnit firstName;
     private final NameUnit lastName;
-    private final static boolean IS_MALE = true;
-    private final static boolean IS_FEMALE = false;
+    private final static Gender GENDER = Gender.MALE;
 
     public Male() {
         NameDataSupplier.NameData nameData = NameDataSupplier.NAME_DATA;
@@ -23,31 +22,38 @@ public class Male implements NameSuppliable {
         lastName = lastNames.get(rand.nextInt(lastNames.size()));
     }
 
+    @Override
     public String kanji() {
         return lastName.kanji() + " " + firstName.kanji();
     }
 
+    @Override
     public String hiragana() {
         return lastName.hiragana() + " " + firstName.hiragana();
     }
 
+    @Override
     public String katakana() {
         return lastName.katakana() + " " + firstName.katakana();
     }
 
+    @Override
     public NameUnit last() {
         return lastName;
     }
 
+    @Override
     public NameUnit first() {
         return firstName;
     }
 
+    @Override
     public boolean isMale() {
-        return IS_MALE;
+        return GENDER.isMale();
     }
 
+    @Override
     public boolean isFemale() {
-        return IS_FEMALE;
+        return GENDER.isFemale();
     }
 }
