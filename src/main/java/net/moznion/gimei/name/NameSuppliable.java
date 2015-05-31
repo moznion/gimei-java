@@ -1,5 +1,7 @@
 package net.moznion.gimei.name;
 
+import net.moznion.gimei.NameUnit;
+
 public interface NameSuppliable {
     String kanji();
 

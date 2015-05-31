@@ -7,6 +7,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import lombok.Data;
 import lombok.Getter;
 import net.moznion.gimei.Gimei;
+import net.moznion.gimei.NameUnit;
 
 import java.io.IOException;
 import java.nio.file.Files;

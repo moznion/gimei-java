@@ -1,5 +1,7 @@
 package net.moznion.gimei.name;
 
+import net.moznion.gimei.NameUnit;
+
 import java.util.Random;
 
 public class Name implements NameSuppliable {

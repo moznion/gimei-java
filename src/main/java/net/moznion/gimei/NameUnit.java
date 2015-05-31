@@ -1,4 +1,4 @@
-package net.moznion.gimei.name;
+package net.moznion.gimei;
 
 import lombok.Getter;
 import lombok.experimental.Accessors;

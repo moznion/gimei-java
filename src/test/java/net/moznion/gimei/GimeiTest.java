@@ -7,7 +7,6 @@ import net.moznion.gimei.name.Female;
 import net.moznion.gimei.name.Hanako;
 import net.moznion.gimei.name.Male;
 import net.moznion.gimei.name.Name;
-import net.moznion.gimei.name.NameUnit;
 import net.moznion.gimei.name.Taro;
 import org.junit.Test;
 
