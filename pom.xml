@@ -3,7 +3,7 @@
 
     <groupId>net.moznion</groupId>
     <artifactId>gimei</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>gimei</name>
@@ -186,7 +186,7 @@
         <url>https://github.com/moznion/gimei-java</url>
         <connection>scm:git:git@github.com:moznion/gimei-java.git</connection>
         <developerConnection>scm:git:git@github.com:moznion/gimei-java.git</developerConnection>
-        <tag>gimei-1.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
