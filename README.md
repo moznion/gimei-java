@@ -1,5 +1,5 @@
-gimei-java
-=============
+gimei-java [![Build Status](https://travis-ci.org/moznion/gimei-java.svg)](https://travis-ci.org/moznion/gimei-java)
+==========
 
 [gimei](https://github.com/willnet/gimei)のJava移植版です．
 漢字，ひらがな，カタカナの3種類の情報を持った架空の情報を生成します．
