@@ -11,7 +11,7 @@ public class Female implements NameSuppliable {
     private final static Gender GENDER = Gender.FEMALE;
 
     public Female() {
-        NameDataSupplier.NameData nameData = NameDataSupplier.NAME_DATA;
+        NameDataSupplier.NameData nameData = NameDataSupplier.getNameData();
 
         Random rand = new Random();
 

@@ -11,7 +11,7 @@ public class Male implements NameSuppliable {
     private final static Gender GENDER = Gender.MALE;
 
     public Male() {
-        NameDataSupplier.NameData nameData = NameDataSupplier.NAME_DATA;
+        NameDataSupplier.NameData nameData = NameDataSupplier.getNameData();
 
         Random rand = new Random();
 

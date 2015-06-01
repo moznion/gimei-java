@@ -1,6 +1,7 @@
 package net.moznion.gimei.name;
 
 import net.moznion.gimei.NameUnit;
+import net.moznion.gimei.NounDataSupplier;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Hanako implements NameSuppliable {
     public Hanako() {
         Random rand = new Random();
 
-        List<NameUnit> nouns = NounDataSupplier.NOUN_DATA.getNouns();
+        List<NameUnit> nouns = NounDataSupplier.getNounData().getNouns();
         lastName = nouns.get(rand.nextInt(nouns.size()));
     }
 
