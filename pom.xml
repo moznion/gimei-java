@@ -8,8 +8,8 @@
     <packaging>jar</packaging>
 
     <name>gimei</name>
-    <description></description>
-    <url></url>
+    <description>Generate fake name for Japanese</description>
+    <url>https://github.com/moznion/gimei-java</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -184,9 +184,9 @@
     </distributionManagement>
 
     <scm>
-        <url></url>
-        <connection>scm:git:</connection>
-        <developerConnection>scm:git:</developerConnection>
+        <url>https://github.com/moznion/gimei-java</url>
+        <connection>scm:git:git@github.com:moznion/gimei-java.git</connection>
+        <developerConnection>scm:git:git@github.com:moznion/gimei-java.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
