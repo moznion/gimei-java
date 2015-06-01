@@ -28,8 +28,8 @@ first.kanji();    // => "大志"
 first.hiragana(); // => "たいし"
 first.katakana(); // => "タイシ"
 
-name.isMale();   // true or false
-name.isFemale(); // true or false
+name.isMale();   // => true or false
+name.isFemale(); // => true or false
 ```
 
 ### Male
@@ -53,8 +53,8 @@ first.kanji();    // => "大志"
 first.hiragana(); // => "たいし"
 first.katakana(); // => "タイシ"
 
-male.isMale();   // true
-male.isFemale(); // false
+male.isMale();   // => true
+male.isFemale(); // => false
 ```
 
 ### Female
@@ -69,17 +69,17 @@ female.hiragana(); // => "てづか ようこ"
 female.katakana(); // => "テヅカ ヨウコ"
 
 NameUnit last = female.last();
-last.kanji();    // => "手塚"
-last.hiragana(); // => "てづか"
-last.katakana(); // => "テヅカ"
+last.kanji();    // => => "手塚"
+last.hiragana(); // => => "てづか"
+last.katakana(); // => => "テヅカ"
 
 NameUnit first = female.first();
 first.kanji();    // => "陽子"
 first.hiragana(); // => "ようこ"
 first.katakana(); // => "ヨウコ"
 
-female.isMale();   // false
-female.isFemale(); // true
+female.isMale();   // => false
+female.isFemale(); // => true
 ```
 
 ### Taro
@@ -103,8 +103,8 @@ first.kanji();    // => "太郎"
 first.hiragana(); // => "たろう"
 first.katakana(); // => "タロウ"
 
-taro.isMale();   // true
-taro.isFemale(); // false
+taro.isMale();   // => true
+taro.isFemale(); // => false
 ```
 
 ### Hanako
@@ -128,8 +128,8 @@ first.kanji();    // => "花子"
 first.hiragana(); // => "はなこ"
 first.katakana(); // => "ハナコ"
 
-hanako.isMale();   // false
-hanako.isFemale(); // true
+hanako.isMale();   // => false
+hanako.isFemale(); // => true
 ```
 
 ### Address
@@ -139,24 +139,36 @@ hanako.isFemale(); // true
 ```java
 Address address = Gimei.generateAddress();
 
-address.kanji();    // 熊本県須崎市国府町新通り
-address.hiragana(); // くまもとけんすさきしこくふちょうしんどおり
-address.katakana(); // クマモトケンスサキシコクフチョウシンドオリ
+address.kanji();    // => "熊本県須崎市国府町新通り"
+address.hiragana(); // => "くまもとけんすさきしこくふちょうしんどおり"
+address.katakana(); // => "クマモトケンスサキシコクフチョウシンドオリ"
 
 NameUnit prefecture = address.prefecture();
-prefecture.kanji();    // 熊本県
-prefecture.hiragana(); // くまもとけん
-prefecture.katakana(); // クマモトケン
+prefecture.kanji();    // => "熊本県"
+prefecture.hiragana(); // => "くまもとけん"
+prefecture.katakana(); // => "クマモトケン"
 
 NameUnit city = address.city();
-city.kanji();    // 須崎市
-city.hiragana(); // すさきし
-city.katakana(); // スサキシ
+city.kanji();    // => "須崎市"
+city.hiragana(); // => "すさきし"
+city.katakana(); // => "スサキシ"
 
 NameUnit town = address.town();
-town.kanji();    // 国府町新通り
-town.hiragana(); // こくふちょうしんどおり
-town.katakana(); // コクフチョウシンドオリ
+town.kanji();    // => "国府町新通り"
+town.hiragana(); // => "こくふちょうしんどおり"
+town.katakana(); // => "コクフチョウシンドオリ"
+```
+
+### Noun
+
+ランダムで名詞を返します．
+
+```java
+Noun noun = Gimei.generateNoun();
+
+noun.kanji();    // => "太陽エンジニヤ"
+noun.hiragana(); // => "たいようえんじにや"
+noun.katakana(); // => "タイヨウエンジニヤ"
 ```
 
 See also

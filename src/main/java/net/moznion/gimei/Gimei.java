@@ -6,6 +6,7 @@ import net.moznion.gimei.name.Hanako;
 import net.moznion.gimei.name.Male;
 import net.moznion.gimei.name.Name;
 import net.moznion.gimei.name.Taro;
+import net.moznion.gimei.noun.Noun;
 
 public class Gimei {
     public static Name generateName() {
@@ -30,5 +31,9 @@ public class Gimei {
 
     public static Address generateAddress() {
         return new Address();
+    }
+
+    public static Noun generateNoun() {
+        return new Noun();
     }
 }

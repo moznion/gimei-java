@@ -1,19 +1,14 @@
 package net.moznion.gimei.name;
 
+import net.moznion.gimei.GimeiSuppliable;
 import net.moznion.gimei.NameUnit;
 
-public interface NameSuppliable {
-    String kanji();
+public interface NameSuppliable extends GimeiSuppliable {
+	NameUnit last();
 
-    String hiragana();
+	NameUnit first();
 
-    String katakana();
+	boolean isMale();
 
-    NameUnit last();
-
-    NameUnit first();
-
-    boolean isMale();
-
-    boolean isFemale();
+	boolean isFemale();
 }
