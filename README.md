@@ -181,6 +181,12 @@ Author
 
 moznion (<moznion@gmail.com>)
 
+名詞データについて
+--
+
+名詞データ (nouns.yml) の内容は修正BSDライセンスで配布されている [NAIST Japanese Dictionary](http://osdn.jp/projects/naist-jdic/)
+の `mecab-naist-jdic-0.6.3b-20111013.tar.gz` がオリジナルデータです．
+
 License
 --
 
