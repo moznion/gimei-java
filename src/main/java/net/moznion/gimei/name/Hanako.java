@@ -1,5 +1,7 @@
 package net.moznion.gimei.name;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import net.moznion.gimei.NameUnit;
 import net.moznion.gimei.NounDataSupplier;
 
@@ -7,14 +9,22 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+@EqualsAndHashCode
+@ToString
 public class Hanako implements NameSuppliable {
     private final static NameUnit FIRST_NAME = new NameUnit(Arrays.asList("花子", "はなこ", "ハナコ"));
     private final static Gender GENDER = Gender.FEMALE;
     private final NameUnit lastName;
 
     public Hanako() {
-        Random rand = new Random();
+        this(new Random());
+    }
 
+    public Hanako(long seed) {
+        this(new Random(seed));
+    }
+
+    public Hanako(Random rand) {
         List<NameUnit> nouns = NounDataSupplier.getNounData().getNouns();
         lastName = nouns.get(rand.nextInt(nouns.size()));
     }
