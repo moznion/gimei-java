@@ -1,31 +1,34 @@
 package net.moznion.gimei.name;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import lombok.Data;
-import lombok.Getter;
-import net.moznion.gimei.Gimei;
-import net.moznion.gimei.NameUnit;
-
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import net.moznion.gimei.NameUnit;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
+import lombok.Data;
+import lombok.Getter;
+
 class NameDataSupplier {
 	private static final NameData NAME_DATA;
 
 	static {
-		ClassLoader classLoader = Gimei.class.getClassLoader();
-		Path path = Paths.get(classLoader.getResource("names.yml").getFile());
-		try {
-			byte[] nameSource = Files.readAllBytes(path);
+		try (InputStream in = NameDataSupplier.class.getResourceAsStream("/names.yml")) {
+			String nameSource;
+			try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
+				nameSource = reader.lines().collect(Collectors.joining("\n"));
+			}
 			ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 			NAME_DATA = mapper.readValue(nameSource, NameData.class);
 		} catch (IOException e) {

@@ -1,27 +1,30 @@
 package net.moznion.gimei;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import lombok.Data;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+import lombok.Data;
 
 public class NounDataSupplier {
 	private static final NounData NOUN_DATA;
 
 	static {
-		ClassLoader classLoader = Gimei.class.getClassLoader();
-		Path path = Paths.get(classLoader.getResource("nouns.yml").getFile());
-		try {
-			byte[] nounSource = Files.readAllBytes(path);
+		try (InputStream in = NounDataSupplier.class.getResourceAsStream("/nouns.yml")) {
+			String nounSource;
+			try (BufferedReader reader = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
+				nounSource = reader.lines().collect(Collectors.joining("\n"));
+			}
 			ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 			NOUN_DATA = mapper.readValue(nounSource, NounData.class);
 		} catch (IOException e) {
