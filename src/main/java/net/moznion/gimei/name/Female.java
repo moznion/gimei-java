@@ -1,19 +1,29 @@
 package net.moznion.gimei.name;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import net.moznion.gimei.NameUnit;
 
 import java.util.List;
 import java.util.Random;
 
+@EqualsAndHashCode
+@ToString
 public class Female implements NameSuppliable {
     private final NameUnit firstName;
     private final NameUnit lastName;
     private final static Gender GENDER = Gender.FEMALE;
 
     public Female() {
-        NameDataSupplier.NameData nameData = NameDataSupplier.getNameData();
+        this(new Random());
+    }
 
-        Random rand = new Random();
+    public Female(long seed) {
+        this(new Random(seed));
+    }
+
+    public Female(Random rand) {
+        NameDataSupplier.NameData nameData = NameDataSupplier.getNameData();
 
         // Randomly pickup a first name
         final List<NameUnit> firstNames = nameData.getFirstName().getFemale();

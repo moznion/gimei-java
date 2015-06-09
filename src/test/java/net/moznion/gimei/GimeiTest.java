@@ -11,6 +11,7 @@ import net.moznion.gimei.noun.Noun;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 @Slf4j
@@ -39,6 +40,16 @@ public class GimeiTest {
 	}
 
 	@Test
+	public void testNameWithSameSeed() {
+		assertEquals(new Name(1L), new Name(1L));
+	}
+
+	@Test
+	public void testNameWithDifferentSeed() {
+		assertNotEquals(new Name(1L), new Name(2L));
+	}
+
+	@Test
 	public void testForMale() {
 		final Male male = Gimei.generateMale();
 
@@ -62,6 +73,16 @@ public class GimeiTest {
 	}
 
 	@Test
+	public void testMaleWithSameSeed() {
+		assertEquals(new Male(1L), new Male(1L));
+	}
+
+	@Test
+	public void testMaleWithDifferentSeed() {
+		assertNotEquals(new Male(1L), new Male(2L));
+	}
+
+	@Test
 	public void testForFemale() {
 		final Female female = Gimei.generateFemale();
 
@@ -82,6 +103,16 @@ public class GimeiTest {
 		final String katakana = female.katakana();
 		assertEquals(last.katakana() + " " + first.katakana(), katakana);
 		log.info(katakana);
+	}
+
+	@Test
+	public void testFemaleWithSameSeed() {
+		assertEquals(new Female(1L), new Female(1L));
+	}
+
+	@Test
+	public void testFemaleWithDifferentSeed() {
+		assertNotEquals(new Female(1L), new Female(2L));
 	}
 
 	@Test
@@ -112,6 +143,16 @@ public class GimeiTest {
 	}
 
 	@Test
+	public void testTaroWithSameSeed() {
+		assertEquals(new Taro(1L), new Taro(1L));
+	}
+
+	@Test
+	public void testTaroWithDifferentSeed() {
+		assertNotEquals(new Taro(1L), new Taro(2L));
+	}
+
+	@Test
 	public void testForHanako() {
 		final Hanako hanako = Gimei.generateHanako();
 
@@ -139,6 +180,16 @@ public class GimeiTest {
 	}
 
 	@Test
+	public void testHanakoWithSameSeed() {
+		assertEquals(new Hanako(1L), new Hanako(1L));
+	}
+
+	@Test
+	public void testHanakoWithDifferentSeed() {
+		assertNotEquals(new Hanako(1L), new Hanako(2L));
+	}
+
+	@Test
 	public void testForAddress() {
 		final Address address = Gimei.generateAddress();
 
@@ -160,11 +211,31 @@ public class GimeiTest {
 	}
 
 	@Test
+	public void testAddressWithSameSeed() {
+		assertEquals(new Address(1L), new Address(1L));
+	}
+
+	@Test
+	public void testAddressWithDifferentSeed() {
+		assertNotEquals(new Address(1L), new Address(2L));
+	}
+
+	@Test
 	public void testForNoun() {
 		final Noun noun = Gimei.generateNoun();
 		log.info(noun.kanji());
 		log.info(noun.hiragana());
 		log.info(noun.katakana());
 		assertTrue(true); // XXX
+	}
+
+	@Test
+	public void testNounWithSameSeed() {
+		assertEquals(new Noun(1L), new Noun(1L));
+	}
+
+	@Test
+	public void testNounWithDifferentSeed() {
+		assertNotEquals(new Noun(1L), new Noun(2L));
 	}
 }

@@ -1,20 +1,30 @@
 package net.moznion.gimei.name;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import net.moznion.gimei.NameUnit;
 
 import java.util.Random;
 
+@EqualsAndHashCode
+@ToString
 public class Name implements NameSuppliable {
     private final NameSuppliable nameSuppliable;
 
     public Name() {
-        Random rand = new Random();
+        this(new Random());
+    }
 
+    public Name(long seed) {
+        this(new Random(seed));
+    }
+
+    public Name(Random rand) {
         // Branch male or female
         if (rand.nextBoolean()) {
-            nameSuppliable = new Male();
+            nameSuppliable = new Male(rand);
         } else {
-            nameSuppliable = new Female();
+            nameSuppliable = new Female(rand);
         }
     }
 

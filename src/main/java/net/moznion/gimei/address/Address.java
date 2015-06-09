@@ -1,6 +1,8 @@
 package net.moznion.gimei.address;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 import net.moznion.gimei.GimeiSuppliable;
 import net.moznion.gimei.NameUnit;
@@ -10,14 +12,22 @@ import java.util.Random;
 
 @Getter
 @Accessors(fluent = true)
+@EqualsAndHashCode
+@ToString
 public class Address implements GimeiSuppliable {
 	private final NameUnit prefecture;
 	private final NameUnit city;
 	private final NameUnit town;
 
 	public Address() {
-		Random rand = new Random();
+		this(new Random());
+	}
 
+	public Address(long seed) {
+		this(new Random(seed));
+	}
+
+	public Address(Random rand) {
 		AddressDataSupplier.AddressData addressData = AddressDataSupplier.ADDRESS_DATA;
 
 		List<NameUnit> prefectures = addressData.getPrefectures();
