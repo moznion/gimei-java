@@ -16,7 +16,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import lombok.Data;
 
-public class NounDataSupplier {
+final public class NounDataSupplier {
 	private static final NounData NOUN_DATA;
 
 	static {

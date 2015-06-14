@@ -6,19 +6,35 @@ import net.moznion.gimei.NameUnit;
 
 import java.util.Random;
 
+/**
+ * ランダムな人名を供給するクラス.
+ */
 @EqualsAndHashCode
 @ToString
 public class Name implements NameSuppliable {
     private final NameSuppliable nameSuppliable;
 
+    /**
+     * ランダムな人名を生成する.
+     */
     public Name() {
         this(new Random());
     }
 
+    /**
+     * シードに基いてランダムな人名を生成する.
+     *
+     * @param seed 乱数を生成する為に使うシード
+     */
     public Name(long seed) {
         this(new Random(seed));
     }
 
+    /**
+     * {@link Random}に基いてランダムな人名を生成する.
+     *
+     * @param rand 乱数生成器
+     */
     public Name(Random rand) {
         // Branch male or female
         if (rand.nextBoolean()) {

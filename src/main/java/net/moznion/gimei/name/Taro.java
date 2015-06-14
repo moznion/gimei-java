@@ -9,6 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * {@code <ランダムな名詞>} + "太郎" を男性名として供給するクラス.
+ */
 @EqualsAndHashCode
 @ToString
 public class Taro implements NameSuppliable {
@@ -16,14 +19,27 @@ public class Taro implements NameSuppliable {
     private final static Gender GENDER = Gender.MALE;
     private final NameUnit lastName;
 
+    /**
+     * ランダムな太郎を生成する.
+     */
     public Taro() {
         this(new Random());
     }
 
+    /**
+     * シードに基づいてランダムな太郎を生成する.
+     *
+     * @param seed 乱数を生成する為に使うシード
+     */
     public Taro(long seed) {
         this(new Random(seed));
     }
 
+    /**
+     * {@link Random}に基いてランダムな太郎を生成する.
+     *
+     * @param rand 乱数生成器
+     */
     public Taro(Random rand) {
         List<NameUnit> nouns = NounDataSupplier.getNounData().getNouns();
         lastName = nouns.get(rand.nextInt(nouns.size()));

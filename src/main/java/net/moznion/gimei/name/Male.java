@@ -7,6 +7,9 @@ import net.moznion.gimei.NameUnit;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * ランダムな男性名を供給するクラス.
+ */
 @EqualsAndHashCode
 @ToString
 public class Male implements NameSuppliable {
@@ -14,14 +17,27 @@ public class Male implements NameSuppliable {
     private final NameUnit lastName;
     private final static Gender GENDER = Gender.MALE;
 
+    /**
+     * ランダムな男性名を生成する.
+     */
     public Male() {
         this(new Random());
     }
 
+    /**
+     * シードに基いてランダムな男性名を生成する.
+     *
+     * @param seed 乱数を生成する為に使うシード
+     */
     public Male(long seed) {
         this(new Random(seed));
     }
 
+    /**
+     * {@link Random}に基いてランダムな男性名を生成する.
+     *
+     * @param rand 乱数生成器
+     */
     public Male(Random rand) {
         NameDataSupplier.NameData nameData = NameDataSupplier.getNameData();
 

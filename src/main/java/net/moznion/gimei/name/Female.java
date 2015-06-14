@@ -7,6 +7,9 @@ import net.moznion.gimei.NameUnit;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * ランダムな女性名を供給するクラス.
+ */
 @EqualsAndHashCode
 @ToString
 public class Female implements NameSuppliable {
@@ -14,14 +17,27 @@ public class Female implements NameSuppliable {
     private final NameUnit lastName;
     private final static Gender GENDER = Gender.FEMALE;
 
+    /**
+     * ランダムな女性名を生成する.
+     */
     public Female() {
         this(new Random());
     }
 
+    /**
+     * シードに基いてランダムな女性名を生成する.
+     *
+     * @param seed 乱数を生成する為に使うシード
+     */
     public Female(long seed) {
         this(new Random(seed));
     }
 
+    /**
+     * {@link Random}に基いてランダムな女性名を生成する.
+     *
+     * @param rand 乱数生成器
+     */
     public Female(Random rand) {
         NameDataSupplier.NameData nameData = NameDataSupplier.getNameData();
 
