@@ -41,12 +41,12 @@ public class GimeiTest {
 
 	@Test
 	public void testNameWithSameSeed() {
-		assertEquals(new Name(1L), new Name(1L));
+		assertEquals(Gimei.generateName(1L), Gimei.generateName(1L));
 	}
 
 	@Test
 	public void testNameWithDifferentSeed() {
-		assertNotEquals(new Name(1L), new Name(2L));
+		assertNotEquals(Gimei.generateName(1L), Gimei.generateName(2L));
 	}
 
 	@Test
@@ -74,12 +74,12 @@ public class GimeiTest {
 
 	@Test
 	public void testMaleWithSameSeed() {
-		assertEquals(new Male(1L), new Male(1L));
+		assertEquals(Gimei.generateMale(1L), Gimei.generateMale(1L));
 	}
 
 	@Test
 	public void testMaleWithDifferentSeed() {
-		assertNotEquals(new Male(1L), new Male(2L));
+		assertNotEquals(Gimei.generateMale(1L), Gimei.generateMale(2L));
 	}
 
 	@Test
@@ -107,12 +107,12 @@ public class GimeiTest {
 
 	@Test
 	public void testFemaleWithSameSeed() {
-		assertEquals(new Female(1L), new Female(1L));
+		assertEquals(Gimei.generateFemale(1L), Gimei.generateFemale(1L));
 	}
 
 	@Test
 	public void testFemaleWithDifferentSeed() {
-		assertNotEquals(new Female(1L), new Female(2L));
+		assertNotEquals(Gimei.generateFemale(1L), Gimei.generateFemale(2L));
 	}
 
 	@Test
@@ -144,12 +144,12 @@ public class GimeiTest {
 
 	@Test
 	public void testTaroWithSameSeed() {
-		assertEquals(new Taro(1L), new Taro(1L));
+		assertEquals(Gimei.generateTaro(1L), Gimei.generateTaro(1L));
 	}
 
 	@Test
 	public void testTaroWithDifferentSeed() {
-		assertNotEquals(new Taro(1L), new Taro(2L));
+		assertNotEquals(Gimei.generateTaro(1L), Gimei.generateTaro(2L));
 	}
 
 	@Test
@@ -181,12 +181,12 @@ public class GimeiTest {
 
 	@Test
 	public void testHanakoWithSameSeed() {
-		assertEquals(new Hanako(1L), new Hanako(1L));
+		assertEquals(Gimei.generateHanako(1L), Gimei.generateHanako(1L));
 	}
 
 	@Test
 	public void testHanakoWithDifferentSeed() {
-		assertNotEquals(new Hanako(1L), new Hanako(2L));
+		assertNotEquals(Gimei.generateHanako(1L), Gimei.generateHanako(2L));
 	}
 
 	@Test
@@ -212,12 +212,12 @@ public class GimeiTest {
 
 	@Test
 	public void testAddressWithSameSeed() {
-		assertEquals(new Address(1L), new Address(1L));
+		assertEquals(Gimei.generateAddress(1L), Gimei.generateAddress(1L));
 	}
 
 	@Test
 	public void testAddressWithDifferentSeed() {
-		assertNotEquals(new Address(1L), new Address(2L));
+		assertNotEquals(Gimei.generateAddress(1L), Gimei.generateAddress(2L));
 	}
 
 	@Test
@@ -231,11 +231,11 @@ public class GimeiTest {
 
 	@Test
 	public void testNounWithSameSeed() {
-		assertEquals(new Noun(1L), new Noun(1L));
+		assertEquals(Gimei.generateNoun(1L), Gimei.generateNoun(1L));
 	}
 
 	@Test
 	public void testNounWithDifferentSeed() {
-		assertNotEquals(new Noun(1L), new Noun(2L));
+		assertNotEquals(Gimei.generateNoun(1L), Gimei.generateNoun(2L));
 	}
 }
