@@ -171,6 +171,11 @@ noun.hiragana(); // => "たいようえんじにや"
 noun.katakana(); // => "タイヨウエンジニヤ"
 ```
 
+Requires
+--
+
+- JDK 7 or later
+
 See also
 --
 

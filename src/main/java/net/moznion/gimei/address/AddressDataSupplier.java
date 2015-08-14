@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -43,15 +44,20 @@ class AddressDataSupplier {
 
 		@JsonProperty("addresses")
 		public void setAll(Map<String, List<List<String>>> data) {
-			prefectures = data.get("prefecture").stream()
-				.map(NameUnit::new)
-				.collect(Collectors.toList());
-			cities = data.get("city").stream()
-				.map(NameUnit::new)
-				.collect(Collectors.toList());
-			towns = data.get("town").stream()
-				.map(NameUnit::new)
-				.collect(Collectors.toList());
+			prefectures = new ArrayList<>();
+			for (List<String> prefecture : data.get("prefecture")) {
+				prefectures.add(new NameUnit(prefecture));
+			}
+
+			cities = new ArrayList<>();
+			for (List<String> city : data.get("city")) {
+				cities.add(new NameUnit(city));
+			}
+
+			towns = new ArrayList<>();
+			for (List<String> town : data.get("town")) {
+				towns.add(new NameUnit(town));
+			}
 		}
 	}
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -54,11 +55,12 @@ class NameDataSupplier {
 
 		@JsonProperty("last_name")
 		public void setLastName(List<List<String>> data) {
-			this.lastName = Collections.unmodifiableList(
-				data.stream()
-					.map(NameUnit::new)
-					.collect(Collectors.toList())
-				);
+			final List<NameUnit> lastName = new ArrayList<>();
+			for (List<String> datam : data) {
+				lastName.add(new NameUnit(datam));
+			}
+
+			this.lastName = Collections.unmodifiableList(lastName);
 		}
 	}
 
@@ -68,16 +70,17 @@ class NameDataSupplier {
 		private final List<NameUnit> female;
 
 		public FirstName(Map<String, List<List<String>>> data) {
-			male = Collections.unmodifiableList(
-				data.get("male").stream()
-					.map(NameUnit::new)
-					.collect(Collectors.toList())
-				);
-			female = Collections.unmodifiableList(
-				data.get("female").stream()
-					.map(NameUnit::new)
-					.collect(Collectors.toList())
-				);
+			final List<NameUnit> male = new ArrayList<>();
+			for (List<String> datam : data.get("male")) {
+				male.add(new NameUnit(datam));
+			}
+			this.male = Collections.unmodifiableList(male);
+
+			final List<NameUnit> female = new ArrayList<>();
+			for (List<String> datam : data.get("female")) {
+				female.add(new NameUnit(datam));
+			}
+			this.female = Collections.unmodifiableList(female);
 		}
 	}
 }
